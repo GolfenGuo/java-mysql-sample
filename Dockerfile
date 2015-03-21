@@ -20,13 +20,13 @@ RUN curl -SsL "$TOMCAT_TGZ_URL" -o tomcat.tar.gz \
 # Prepare by downloading dependencies
 WORKDIR /code
 ADD pom.xml /code/pom.xml
-RUN ["mvn", "-q", "dependency:resolve"]
+RUN mvn -q dependency:resolve
 
 # Adding source, compile and package into a WAR
 ADD src /code/src
-RUN ["mvn", "-q", "-DskipTests=true", "compile", "war:exploded"]
-RUN ["rm", "-rf", "/usr/local/tomcat/webapps/ROOT/*"]
-RUN ["cp", "-r", "target/App/*", "/usr/local/tomcat/webapps/ROOT/"]
+RUN mvn -q -DskipTests=true compile war:exploded
+RUN rm -rf /usr/local/tomcat/webapps/ROOT/*
+RUN cp -r target/App/* /usr/local/tomcat/webapps/ROOT/
 
 # Expose port
 EXPOSE 8080

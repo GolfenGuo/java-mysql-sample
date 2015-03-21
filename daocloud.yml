@@ -11,5 +11,7 @@ env:
 
 script:
   - mysql -u root -h mysql -e 'create database if not exists test;'
+  - mkdir -p daocloud/testresults
+  - mkdir -p daocloud/codecoverage
   - mvn -q clean cobertura:cobertura
   - mvn -q test

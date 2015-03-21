@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.daocloud</groupId>
-  <artifactId>sample-java-mysql</artifactId>
+  <artifactId>java-mysql-sample</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
@@ -52,7 +52,7 @@
           <format>xml</format>
           <maxmem>256m</maxmem>
           <aggregate>true</aggregate>
-          <outputDirectory>shippable/codecoverage</outputDirectory>
+          <outputDirectory>daocloud/codecoverage</outputDirectory>
         </configuration>
       </plugin>
       <plugin>
@@ -61,7 +61,7 @@
         <version>2.17</version>
         <configuration>
           <redirectTestOutputToFile>true</redirectTestOutputToFile>
-          <reportsDirectory>shippable/testresults</reportsDirectory>
+          <reportsDirectory>daocloud/testresults</reportsDirectory>
         </configuration>
         <dependencies>
           <dependency>
