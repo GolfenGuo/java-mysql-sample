@@ -11,5 +11,5 @@ env:
 
 script:
   - mysql -u root -h mysql -e 'create database if not exists test;'
-  - mvn clean cobertura:cobertura
-  - mvn test
+  - mvn -q clean cobertura:cobertura
+  - mvn -q test

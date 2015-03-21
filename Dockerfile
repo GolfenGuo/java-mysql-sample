@@ -11,8 +11,8 @@ ENV TOMCAT_TGZ_URL https://www.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/v$TOM
 
 # Install Tomcat
 WORKDIR $CATALINA_HOME
-RUN curl -SL "$TOMCAT_TGZ_URL" -o tomcat.tar.gz \
-        && curl -SL "$TOMCAT_TGZ_URL.asc" -o tomcat.tar.gz.asc \
+RUN curl -SsL "$TOMCAT_TGZ_URL" -o tomcat.tar.gz \
+        && curl -SsL "$TOMCAT_TGZ_URL.asc" -o tomcat.tar.gz.asc \
         && tar -xvf tomcat.tar.gz --strip-components=1 \
         && rm bin/*.bat \
         && rm tomcat.tar.gz*
@@ -20,11 +20,11 @@ RUN curl -SL "$TOMCAT_TGZ_URL" -o tomcat.tar.gz \
 # Prepare by downloading dependencies
 WORKDIR /code
 ADD pom.xml /code/pom.xml
-RUN ["mvn", "dependency:resolve"]
+RUN ["mvn", "-q", "dependency:resolve"]
 
 # Adding source, compile and package into a WAR
 ADD src /code/src
-RUN ["mvn", "-DskipTests=true", "compile", "war:exploded"]
+RUN ["mvn", "-q", "-DskipTests=true", "compile", "war:exploded"]
 RUN ["rm", "-rf", "/usr/local/tomcat/webapps/ROOT/*"]
 RUN ["cp", "-r", "target/App/*", "/usr/local/tomcat/webapps/ROOT/"]
 
