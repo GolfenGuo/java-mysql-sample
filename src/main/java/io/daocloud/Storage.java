@@ -8,11 +8,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Storage {
-  private final String dbName = System.getProperty("DB_NAME"); 
-  private final String userName = System.getProperty("DB_USERNAME"); 
-  private final String password = System.getProperty("DB_PASSWORD"); 
-  private final String hostname = System.getProperty("DB_HOST");
-  private final int port = Integer.parseInt(System.getProperty("DB_PORT"));
+  private final String dbName = System.getProperty("DB_NAME", "test"); 
+  private final String userName = System.getProperty("DB_USERNAME", "root"); 
+  private final String password = System.getProperty("DB_PASSWORD", ""); 
+  private final String hostname = System.getProperty("DB_HOST", "mysql");
+  private final int port = Integer.parseInt(System.getProperty("DB_PORT", "3306"));
   private final String databaseUrl = "jdbc:mysql://" + hostname + ":" + port + "/" + dbName;
 
   private Connection conn;
