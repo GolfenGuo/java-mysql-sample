@@ -4,8 +4,9 @@ services:
   - mysql
 
 env:
-  - DB_NAME=test
+#  - DB_NAME=test
 
 script:
+  - export DB_NAME=test
   - mysql -u root -h mysql -e 'create database if not exists test;'
   - mvn clean test
