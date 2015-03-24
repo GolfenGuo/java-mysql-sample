@@ -4,9 +4,6 @@ services:
   - mysql
 
 env:
-  - DB_HOST=mysql
-  - DB_PORT=3306
-  - DB_USERNAME=root
   - DB_NAME=test
 
 script:

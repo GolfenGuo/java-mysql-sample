@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Storage {
-  private final String dbName = System.getProperty("DB_NAME", "test"); 
+  private final String dbName = System.getProperty("DB_NAME", "daocloud"); 
   private final String userName = System.getProperty("DB_USERNAME", "root"); 
   private final String password = System.getProperty("DB_PASSWORD", ""); 
   private final String hostname = System.getProperty("DB_HOST", "mysql");
