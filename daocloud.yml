@@ -5,4 +5,4 @@ services:
 
 script:
   - mysql -u root -h mysql -e 'create database if not exists test;'
-  - mvn clean test -DDB_NAME=test
+  - mvn -q clean test -DDB_NAME=test
