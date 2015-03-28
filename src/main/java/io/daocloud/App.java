@@ -4,11 +4,11 @@ import static spark.Spark.*;
 
 import spark.*;
 
-public class HelloWorld {
+public class App {
 
    public static void main(String[] args) {
 
-      Storage storage = new Storage();
+      final Storage storage = new Storage();
       
       get(new Route("/") {
          @Override
