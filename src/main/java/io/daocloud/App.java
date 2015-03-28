@@ -1,24 +1,19 @@
 package io.daocloud;
 
-import spark.Request;
-import spark.Response;
-import spark.Route;
-import spark.Spark;
-import spark.servlet.SparkApplication;
+import static spark.Spark.*;
 
-public class App implements SparkApplication {
-  private Storage storage;
+import spark.*;
 
-  public App() throws Exception {
-    storage = new Storage();
-  }
+public class HelloWorld {
 
-  @Override
-  public void init() {
-    Spark.get(new Route("/") {
-      @Override
-      public Object handle(Request request, Response response) {
-        storage.populate();
+   public static void main(String[] args) {
+
+      Storage storage = new Storage();
+      
+      get(new Route("/") {
+         @Override
+         public Object handle(Request request, Response response) {
+            storage.populate();
         Integer score = null;
         try {
           score = storage.getScore();
@@ -27,7 +22,9 @@ public class App implements SparkApplication {
         }
 
         return "Hello world, " + score + "!";
-      }
-    });
-  }
+         }
+      });
+
+   }
+
 }

@@ -13,6 +13,6 @@ RUN mvn -q -DskipTests=true package
 
 
 # Expose port
-EXPOSE 8080
+EXPOSE 4567
 
-CMD ["java", "-jar", "App.jar"]
+CMD ["java", "-jar", "target/App.war"]
