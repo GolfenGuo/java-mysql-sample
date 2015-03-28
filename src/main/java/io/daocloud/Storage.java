@@ -17,7 +17,7 @@ public class Storage {
 
   private Connection conn;
 
-  public Storage() throws Exception {
+  public Storage() {
     Class.forName("com.mysql.jdbc.Driver").newInstance();
 
     conn = DriverManager.getConnection(databaseUrl, userName, password);
