@@ -8,11 +8,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Storage {
-  private final String dbName = System.getProperty("DB_NAME", "daocloud"); 
-  private final String userName = System.getProperty("DB_USERNAME", "root"); 
-  private final String password = System.getProperty("DB_PASSWORD", ""); 
-  private final String hostname = System.getProperty("DB_HOST", "mysql");
-  private final int port = Integer.parseInt(System.getProperty("DB_PORT", "3306"));
+  private final String dbName = System.getProperty("MYSQL_INSTANCE_NAME", "daocloud"); 
+  private final String userName = System.getProperty("MYSQL_USERNAME", "root"); 
+  private final String password = System.getProperty("MYSQL_PASSWORD", ""); 
+  private final String hostname = System.getProperty("MYSQL_PORT_3306_TCP_ADDR", "localhost");
+  private final int port = Integer.parseInt(System.getProperty("MYSQL_PORT_3306_TCP_PORT", "3306"));
   private final String databaseUrl = "jdbc:mysql://" + hostname + ":" + port + "/" + dbName;
 
   private Connection conn;

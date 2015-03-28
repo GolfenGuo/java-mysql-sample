@@ -10,7 +10,7 @@ RUN mvn -q dependency:resolve
 # Adding source, compile and package into a WAR
 ADD src /code/src
 RUN mvn -q -DskipTests=true package
-RUN mvn jetty:jetty
+RUN mvn jetty:stop
 
 # Expose port
 EXPOSE 8080
