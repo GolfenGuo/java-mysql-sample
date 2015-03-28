@@ -8,8 +8,9 @@ public class App {
 
    public static void main(String[] args) {
 
-      final Storage storage = new Storage();
+      final Storage storage;
       try {
+        storage = new Storage();
            storage.populate();
         } catch (Exception e) {
           e.printStackTrace();
