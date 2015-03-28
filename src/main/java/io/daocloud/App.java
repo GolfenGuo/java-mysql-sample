@@ -8,7 +8,7 @@ public class App {
 
    public static void main(String[] args) {
 
-      final Storage storage;
+      final Storage storage = null;
       try {
         storage = new Storage();
            storage.populate();
