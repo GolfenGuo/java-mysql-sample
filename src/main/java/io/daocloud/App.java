@@ -6,11 +6,7 @@ import spark.*;
 
 public class App {
 
-   public static void main(String[] args) {
-
-      
-      final Storage storage = new Storage();
-           storage.populate();
+   public static void main(String[] args) throws Exception{
       
       get(new Route("/") {
          @Override
@@ -18,6 +14,8 @@ public class App {
            
         Integer score = null;
         try {
+          Storage storage = new Storage();
+          storage.populate();
           score = storage.getScore();
         } catch (Exception e) {
           e.printStackTrace();
